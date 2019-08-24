@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Button, Text, View} from "react-native";
+import {styles} from "../Styles";
 
 interface ReminderProps {
     time?: bigint;
@@ -23,7 +24,7 @@ export default class ReminderView extends Component<ReminderProps> {
     }
 
     componentWillReceiveProps(nextProps: Readonly<ReminderProps>, nextContext: any): void {
-        if(nextProps != this.props) {
+        if (nextProps != this.props) {
             this.state = new ReminderViewModel(nextProps);
         }
     }
@@ -39,19 +40,19 @@ export default class ReminderView extends Component<ReminderProps> {
     }
 
     render() {
-        return this.props.isSet ?
+        return this.state.isSet ?
             <View>
                 <Text>Reminder Set at: {this.state.time}</Text>
                 <Button
                     onPress={this.cancelTimer}
                     title="Cancel Timer"
-                    color="#841584"/>
+                    color="#f41584"/>
             </View> :
             <View>
                 <Button
                     onPress={this.setTimer}
                     title="Set Timer"
-                    color="#841584"/>
+                    color="#000000"/>
             </View>;
     }
 }

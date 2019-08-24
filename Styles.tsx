@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     item: {
         flex: 1,
         margin: 5,
-        padding: 5,
+        padding: 10,
         backgroundColor: '#f4e5a3',
     },
     title: {
@@ -18,7 +18,6 @@ export const styles = StyleSheet.create({
         fontSize: 18,
     },
     row: {
-        flex: 1,
         flexDirection: 'row',
     },
     column: {
@@ -33,5 +32,5 @@ export const styles = StyleSheet.create({
     },
     actionButton: {
         margin: 10,
-    }
+    },
 });

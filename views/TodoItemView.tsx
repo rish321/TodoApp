@@ -1,14 +1,13 @@
 import React, {Component} from "react";
-import {Button, Image, Text, View} from "react-native";
+import {Button, Image, ImageSourcePropType, Text, View} from "react-native";
 import {styles} from "../Styles";
 import ReminderView from "./ReminderView";
-import {ImageItem} from "../models/ImageItem";
 import {ReminderItem} from "../models/ReminderItem";
 
 interface TodoItemViewProps {
     title: String;
     description: String;
-    pic?: ImageItem;
+    pic?: ImageSourcePropType;
     reminder?: ReminderItem;
 }
 
@@ -20,10 +19,6 @@ function editDetails() {
 
 }
 
-function setReminder() {
-
-}
-
 export default class TodoItemView extends Component<TodoItemViewProps> {
     render() {
         return (
@@ -32,10 +27,10 @@ export default class TodoItemView extends Component<TodoItemViewProps> {
                     <View style={styles.column}>
                         <Text style={styles.title}>{this.props.title}</Text>
                         <Text style={styles.description}>{this.props.description}</Text>
-                        <ReminderView/>
                     </View>
                     <Image source={this.props.pic} style={styles.image}/>
                 </View>
+                <ReminderView style={{paddingTop: 20}}/>
                 <View style={[styles.row, {marginTop: 5}]}>
                     <View style={[styles.column, styles.actionButton]}>
                         <Button
