@@ -5,8 +5,8 @@ import ReminderView from "./ReminderView";
 import {ReminderItem} from "../models/ReminderItem";
 
 interface TodoItemViewProps {
-    title: String;
-    description: String;
+    title: string;
+    description: string;
     pic?: ImageSourcePropType;
     reminder?: ReminderItem;
 }
@@ -30,7 +30,7 @@ export default class TodoItemView extends Component<TodoItemViewProps> {
                     </View>
                     <Image source={this.props.pic} style={styles.image}/>
                 </View>
-                <ReminderView style={{paddingTop: 20}}/>
+                <ReminderView/>
                 <View style={[styles.row, {marginTop: 5}]}>
                     <View style={[styles.column, styles.actionButton]}>
                         <Button

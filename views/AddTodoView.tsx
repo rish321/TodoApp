@@ -1,13 +1,8 @@
 import React, {Component} from "react";
-import {Button, ImageSourcePropType, TextInput, View} from "react-native";
-import TodoFlatViewList from "./TodoFlatViewList";
-import {ImageItem} from "../models/ImageItem";
-import {TodoItem} from "../models/TodoItem";
-import {styles} from "../Styles";
-
+import {Button, TextInput, View} from "react-native";
 class AddTodoViewModel {
-    public title: String;
-    public description: String;
+    public title: string;
+    public description: string;
 
     constructor(props: AddTodoProps) {
         this.title = props.title;
@@ -16,11 +11,11 @@ class AddTodoViewModel {
 }
 
 interface AddTodoProps {
-    title: String;
-    description: String;
+    title: string;
+    description: string;
 }
 
-export default class AddTodoView extends Component<AddTodoProps> {
+export default class AddTodoView extends Component<AddTodoProps, AddTodoViewModel> {
     constructor(props: AddTodoProps) {
         super(props);
         this.state = new AddTodoViewModel(props);
@@ -28,16 +23,18 @@ export default class AddTodoView extends Component<AddTodoProps> {
 
     render() {
         return (
-            <View>
+            <View style={{padding: 20}}>
                 <TextInput
                     style={{height: 40}}
                     onChangeText={(text) => this.setState({title: text})}
                     value={this.state.title}
+                    placeholder={"Enter title"}
                 />
                 <TextInput
                     style={{height: 40}}
                     onChangeText={(text) => this.setState({description: text})}
                     value={this.state.description}
+                    placeholder={"Enter description"}
                 />
 
                 <Button title="Save" onPress={this.saveTodo}/>

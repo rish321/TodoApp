@@ -17,7 +17,7 @@ class ReminderViewModel {
     }
 }
 
-export default class ReminderView extends Component<ReminderProps> {
+export default class ReminderView extends Component<ReminderProps, ReminderViewModel> {
     constructor(props: ReminderProps) {
         super(props);
         this.state = new ReminderViewModel(props);
@@ -29,24 +29,24 @@ export default class ReminderView extends Component<ReminderProps> {
         }
     }
 
-    private setTimer() {
-        this.setState({isSet: false});
-    }
+    private setTimer = () => {
+        this.setState({isSet: true});
+    };
 
-    private cancelTimer() {
+    private cancelTimer = () => {
         this.setState({
-            isSet: true
+            isSet: false
         });
-    }
+    };
 
     render() {
         return this.state.isSet ?
-            <View>
-                <Text>Reminder Set at: {this.state.time}</Text>
+            <View style={styles.row}>
+                <Text style={styles.column}>Reminder Set at: {this.state.time}</Text>
                 <Button
                     onPress={this.cancelTimer}
                     title="Cancel Timer"
-                    color="#f41584"/>
+                    color="#f41584">style={styles.column}</Button>
             </View> :
             <View>
                 <Button

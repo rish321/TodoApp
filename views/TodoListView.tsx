@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {ImageSourcePropType, View} from "react-native";
 import TodoFlatViewList from "./TodoFlatViewList";
-import {ImageItem} from "../models/ImageItem";
 import {TodoItem} from "../models/TodoItem";
 
 export default class TodoListView extends Component {

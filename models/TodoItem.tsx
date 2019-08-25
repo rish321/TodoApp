@@ -1,9 +1,9 @@
-import {ReminderItem} from "./ReminderItem";
 import {ImageSourcePropType} from "react-native";
+import {ReminderItem} from "./ReminderItem";
 
 export class TodoItem {
-    title: String;
-    description: String;
+    title: string;
+    description: string;
     pic: ImageSourcePropType;
     reminder?: ReminderItem;
 }
